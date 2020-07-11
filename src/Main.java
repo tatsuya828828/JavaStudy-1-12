@@ -1,6 +1,8 @@
+import creature.BattleCreature;
 import creature.Character;
 import job.Hero;
 import job.SuperHero;
+import job.Wizard;
 
 public class Main {
 
@@ -35,6 +37,17 @@ public class Main {
 			SuperHero superHero2 = (SuperHero) superHero;
 			superHero2.talk();
 			superHero2.fly();
+		}
+
+		// 大まかにBattleCreatureとして見ることで一斉に処理を行うことができる
+		BattleCreature[] bc = new BattleCreature[3];
+		bc[0] = new Hero("ヒーロー");
+		bc[1] = new SuperHero("スーパーヒーロー");
+		bc[2] = new Wizard("魔法使い");
+
+		for(BattleCreature value: bc) {
+			value.setHp(value.getHp()+50);
+			System.out.println(value.getName() +"のHPを50回復した");
 		}
 	}
 }

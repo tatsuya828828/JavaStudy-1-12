@@ -1,11 +1,12 @@
 package job;
 public class SuperHero extends Hero {
-	public SuperHero(String name){
-		super(name);
-	}
 
 	public SuperHero() {
 		super();
+	}
+
+	public SuperHero(String name) {
+		super(name);
 	}
 
 	public void talk() {

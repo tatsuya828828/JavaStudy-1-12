@@ -1,26 +1,17 @@
 package job;
-import creature.Character;
+import creature.BattleCreature;
 
-public class Hero implements Character {
-	private String name;
-
-	public Hero(String name) {
-		this.name = name;
-	}
+public class Hero extends BattleCreature {
 
 	public Hero() {
-		this("たかし");
+		super();
+	}
+
+	public Hero(String name) {
+		super(name);
 	}
 
 	public void talk() {
-		 System.out.println("僕はヒーロー"+ this.name +"です");
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		 System.out.println("僕はヒーロー"+ this.getName() +"です");
 	}
 }
