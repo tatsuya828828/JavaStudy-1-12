@@ -1,5 +1,6 @@
 import creature.Character;
 import job.Hero;
+import job.SuperHero;
 
 public class Main {
 
@@ -11,10 +12,29 @@ public class Main {
 		// 外見がCharacter型なのでCharacterで定義していないメソッドを呼び出すことはできない
 		// System.out.println(hero.getName());
 
-		// Characterにも定義してあるメソッドであれば使うことができる
+		// Characterの一種なのでCharacterにも定義してあるメソッドであれば使うことができる
 		// また外側から順に呼び出されるため一番外側で定義されたメソッドが反応する
 		// このような仕組みから継承は、「子クラスは親クラスの一種である」という考え方が重要
 		hero.talk();
 		superHero.talk();
+
+		// キャスト演算子を使えば強制的にHero型にすることができ、メソッドも呼び出せる
+		// 曖昧な型に入っている中身を、厳密な型に代入することをダウンキャストといわれ、失敗の危険が伴う
+		Hero hero2 = (Hero) hero;
+		System.out.println(hero2.getName());
+		// 強制的にキャストしても代入する方が違う場合不具合が起きる
+		// (Hero型なのにSuperHero型のメソッドが反応している)
+		// しかしSuperHero型のメソッドは呼び出せない
+		Hero hero3 = (Hero) superHero;
+		hero3.talk();
+		//hero3.fly();
+
+		// 上のような理由から、キャストする際はインスタンスに代入可能かチェックすることが必要である
+		if(superHero instanceof SuperHero) {
+			System.out.println("この中身はSuperHero型です、SuperHero型にキャストします");
+			SuperHero superHero2 = (SuperHero) superHero;
+			superHero2.talk();
+			superHero2.fly();
+		}
 	}
 }
