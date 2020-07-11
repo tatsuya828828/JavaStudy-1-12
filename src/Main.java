@@ -3,10 +3,17 @@ import creature.Character;
 import job.Hero;
 import job.SuperHero;
 import job.Wizard;
-
 public class Main {
 
 	public static void main(String[] args) {
+		Y[] y = new Y[2];
+		y[0] = new A();
+		y[1] = new B();
+		for(Y value: y) {
+			value.b();
+		}
+		System.out.println("");
+
 		// 大まかに捉えればheroもsuperheroもCharacterの一種なので代入することができる
 		Character hero = new Hero("ひろし");
 		Character superHero = new SuperHero("きよし");
